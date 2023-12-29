@@ -8,18 +8,17 @@
 
 import UIKit
 
-
 // MARK: - SpecialKeyView
 
 /// The display of a function key (like space or alt).
 final class SpecialKeyView: KeyView {
-  
+
     var fontSize: CGFloat = 20
     /// Primary functions are displayed in bright, secondary are lighter.
     enum Level {
         case primary, secondary
     }
-  
+
     /// Label displaying the key function
     private var label: UILabel?
     /// Image displaying the key function
@@ -30,47 +29,46 @@ final class SpecialKeyView: KeyView {
             updateAppearance()
         }
     }
+
+    // MARK: Life cycle
+  
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addLabel()
+    }
+  
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        addLabel()
+    }
   
   
-  // MARK: Life cycle
+    // MARK: Configuration
   
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    addLabel()
-  }
+    /**
+     Configure the key with a label.
+    */
+    func configure(withText text: String, level: Level) {
+        addLabel()
+        label?.text = text
+        self.level = level
+    }
   
-  required init?(coder: NSCoder) {
-    super.init(coder: coder)
-    addLabel()
-  }
-  
-  
-  // MARK: Configuration
-  
-  /**
-   Configure the key with a label.
-   */
-  func configure(withText text: String, level: Level) {
-    addLabel()
-    label?.text = text
-    self.level = level
-  }
-  
-  /**
-   Configure the key with a symbol.
-   */
-  func configure(withImage image: UIImage, level: Level) {
-    addImageView()
-    imageView?.image = image
-    self.level = level
-  }
+    /**
+     Configure the key with a symbol.
+    */
+    func configure(withImage image: UIImage, level: Level) {
+        addImageView()
+        imageView?.image = image
+        self.level = level
+    }
   
   
-  // MARK: Drawing
+    // MARK: Drawing
   
-  /**
-   Update theme appearance.
-   */
+    /**
+     Update theme appearance.
+    */
     override func updateAppearance() {
         super.updateAppearance()
         if isHighlighted {
@@ -89,11 +87,13 @@ final class SpecialKeyView: KeyView {
         }
     }
   
-  /**
-   Use the label and removes the image (if needed).
-   */
+    /**
+     Use the label and removes the image (if needed).
+    */
     private func addLabel() {
-    if label != nil { return }
+        guard label == nil else {
+            return
+        }
         imageView?.removeFromSuperview()
         imageView = nil
         let label = UILabel()
@@ -112,23 +112,24 @@ final class SpecialKeyView: KeyView {
         self.label = label
     }
   
-  /**
-   Adds the image and removes the label (if needed).
-   */
-  private func addImageView() {
-    if imageView != nil { return }
-    label?.removeFromSuperview()
-    label = nil
-    imageView = UIImageView(frame: .init(origin: .zero, size: .init(width: 22, height: 22)))
-    imageView?.tintColor = ColorManager.shared.label
-    imageView?.translatesAutoresizingMaskIntoConstraints = false
-    addSubview(imageView!)
-    NSLayoutConstraint.activate([
-      imageView!.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
-      imageView!.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-      imageView!.widthAnchor.constraint(equalToConstant: 22),
-      imageView!.heightAnchor.constraint(equalToConstant: 22),
-    ])
-  }
-  
+    /**
+     Adds the image and removes the label (if needed).
+    */
+    private func addImageView() {
+        guard imageView == nil else {
+            return
+        }
+        label?.removeFromSuperview()
+        label = nil
+        imageView = UIImageView(frame: .init(origin: .zero, size: .init(width: 22, height: 22)))
+        imageView?.tintColor = ColorManager.shared.label
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(imageView!)
+        NSLayoutConstraint.activate([
+          imageView!.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+          imageView!.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+          imageView!.widthAnchor.constraint(equalToConstant: 22),
+          imageView!.heightAnchor.constraint(equalToConstant: 22),
+        ])
+    }
 }

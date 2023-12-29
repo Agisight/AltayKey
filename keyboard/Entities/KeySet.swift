@@ -297,7 +297,7 @@ struct KeySet {
   
     
     func keysImage(for size: CGSize, altState: Key.State) -> KeysImages {
-        KeysImages.clearData()
+//        KeysImages.clearData()
         let currentImages = KeysImages.shared
         switch altState {
         case .on, .locked:

@@ -85,7 +85,11 @@ final class KeyboardState {
       lastTap = nil
         Self.altState = .locked
     } else {
-        if !Self.altState.isActive { registerTap(on: .alt) }
+        if !Self.altState.isActive {
+            registerTap(on: .alt)
+        } else {
+            Self.shiftState = .off
+        }
         Self.altState.toggle()
     }
     displayDelegate?.altStateChanged(newState: Self.altState)
