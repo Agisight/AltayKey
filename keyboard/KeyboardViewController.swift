@@ -20,12 +20,6 @@ final class KeyboardViewController: UIInputViewController {
         customInputViewController?.textDidChange(textDocumentProxy)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let size = view.frame.size
-        debugPrint(size)
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

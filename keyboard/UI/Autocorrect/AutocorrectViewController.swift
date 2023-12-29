@@ -14,14 +14,14 @@ import UIKit
 
 /// Autocorrect suggestions bar
 final class AutocorrectViewController: UIViewController {
-  
-  @IBOutlet weak var button1: UIButton!
-  @IBOutlet weak var button2: UIButton!
-  @IBOutlet weak var button3: UIButton!
-  
-  weak var delegate: KeyboardActionProtocol?
-  
-  let autocorrectEngine = Autocorrect()
+
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+
+    weak var delegate: KeyboardActionProtocol?
+
+    let autocorrectEngine = Autocorrect()
   
   // MARK: Life cycle
   

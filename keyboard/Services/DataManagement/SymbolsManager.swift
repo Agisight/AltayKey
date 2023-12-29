@@ -43,7 +43,7 @@ final class SymbolsManager {
         case .shiftFill:
             imageName = "shift.fill"
         case .shiftAlt, .shiftAltFill:
-            imageName = "#+="
+            imageName = "symbolsShift"
         case .option:
             imageName = "option"
         }
