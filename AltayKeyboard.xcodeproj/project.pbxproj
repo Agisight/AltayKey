@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,7 @@
 		391CF4D32473FAFE00C36FA6 /* Correction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF4D12473FAFE00C36FA6 /* Correction.swift */; };
 		392159BD246D39BF00F2E013 /* KeyboardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392159BC246D39BF00F2E013 /* KeyboardProtocols.swift */; };
 		392AD047245D72D9008252F1 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392AD046245D72D9008252F1 /* KeyboardViewController.swift */; };
-		392AD04B245D72D9008252F1 /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 392AD044245D72D9008252F1 /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		392AD04B245D72D9008252F1 /* keyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 392AD044245D72D9008252F1 /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		392AD050245D759F008252F1 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3994E3A1245D6D10008B1099 /* InputViewController.swift */; };
 		392D740D2514E589002460D0 /* UniversalLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D740C2514E589002460D0 /* UniversalLogger.swift */; };
 		392D740E2514E589002460D0 /* UniversalLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D740C2514E589002460D0 /* UniversalLogger.swift */; };
@@ -69,15 +69,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		392AD04C245D72D9008252F1 /* Embed App Extensions */ = {
+		392AD04C245D72D9008252F1 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				392AD04B245D72D9008252F1 /* keyboard.appex in Embed App Extensions */,
+				392AD04B245D72D9008252F1 /* keyboard.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -374,7 +374,7 @@
 				39528F78245AFC4D0080FBE8 /* Sources */,
 				39528F79245AFC4D0080FBE8 /* Frameworks */,
 				39528F7A245AFC4D0080FBE8 /* Resources */,
-				392AD04C245D72D9008252F1 /* Embed App Extensions */,
+				392AD04C245D72D9008252F1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -392,8 +392,9 @@
 		39528F74245AFC4D0080FBE8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = majbyr.com;
 				TargetAttributes = {
 					392AD043245D72D9008252F1 = {
@@ -580,6 +581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -613,6 +615,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -642,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -675,6 +679,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
